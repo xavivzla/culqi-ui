@@ -1,0 +1,198 @@
+@mixin md-card($base) {
+  @include md-theme-property(background-color, $base);
+  @include md-theme-property(color, text-primary, $base);
+
+  .md-card-expand .md-card-actions {
+    @include md-theme-property(background-color, $base);
+  }
+
+  .md-card-header,
+  .md-card-actions {
+    .md-button:not(.md-primary):not(.md-accent) {
+      @include md-theme-property(color, text-primary, $base);
+
+      &.md-icon-button {
+        .md-icon {
+          @include md-theme-property(color, text-primary, $base, 0.54);
+          @include md-theme-property(fill, text-primary, $base, 0.54);
+        }
+      }
+    }
+  }
+
+  > .md-card-area {
+    &:after {
+      @include md-theme-property(background-color, divider, $base);
+    }
+  }
+}
+
+.md-card {
+  @include md-theme-component() {
+    @include md-card(background);
+    .md-new-card {
+      display: grid;
+      grid-template-columns: 70% 30%;
+      @media screen and(max-width: 800px) {
+        width: 100%;
+        grid-template-columns: 15% 75% 10%;
+        padding: 0 16px;
+        .md-card-header {
+          display: flex;
+          align-items: center;
+        }
+      }
+      .md-card-header-text {
+        height: 56px;
+        margin: 10px 10px 0 10px;
+        display: flex;
+        align-items: flex-end;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        @media screen and(max-width: 800px) {
+          align-items: center;
+          grid-row: 1;
+          grid-column: 2;
+        }
+        .md-title {
+          font-family: Archivo;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 28px;
+        }
+      }
+      .md-card-item {
+        @media screen and(max-width: 800px) {
+          display: none;
+        }
+      }
+    }
+    &.md-primary {
+      @include md-card(primary);
+    }
+
+    &.md-accent {
+      @include md-card(accent);
+    }
+  }
+
+  &.md-sale-detail-card {
+    max-width: 600px;
+    max-height: 128px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: none !important;
+    border: 1px solid #E2E5E8;
+    border-radius: 4px;
+    .md-card-content {
+      width: 95%;
+      margin: auto;
+      &:first-child {
+        width: 60%;
+      }
+      &:last-child {
+        width: 40%;
+      }
+      .md-list-item {
+        display: flex;
+        flex-direction: column;
+        .md-list-content {
+          display: flex;
+          flex-direction: row;
+          margin: 3px 0;
+          .md-icon {
+            margin: 0 9.5px 0 0;
+          }
+          span {
+            font-size: 16px;
+            line-height: 24px;
+            color: #3e4b61;
+          }
+        }
+      }
+      .md-mount-container {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        .md-card-header {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 11.24px;
+          line-height: 16px;
+          color: #677487;
+          padding-bottom: 4px;
+        }
+        .md-mount {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
+          width: 100%;
+          flex: 1;
+          &.strikethrough{
+            span{
+              text-decoration: line-through;
+              color: #8791A0;
+            }
+          }
+          .strikethrough{
+            font-family: Archivo;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14.22px;
+          line-height: 20px;
+          text-decoration: line-through;
+          color: #8791A0;
+          margin-right: 10px;
+          }
+          span {
+            font-weight: 600;
+            font-size: 25.63px;
+            line-height: 36px;
+            color: #36b37e;
+          }
+          .md-icon {
+            margin-right: 0;
+            margin-left: 10.25px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 550px) {
+      flex-direction: column-reverse;
+      max-width: 304px;
+      max-height: 209px;
+      .md-card-content {
+        width: 100% !important;
+        padding-left: 16px !important;
+        &:first-child {
+          grid-row: 2;
+          height: 57%;
+        }
+        &:last-child {
+          grid-row: 1;
+          border-bottom: 1px solid #E2E5E8;
+          height: 43%;
+          padding: 0;
+        }
+        .md-mount-container {
+          text-align: left !important;
+          padding-left: 0 !important;
+          .md-card-header {
+            padding: 16px 0 4px 0 !important;
+          }
+          .md-mount {
+            flex-direction: row-reverse;
+            .md-icon {
+            margin-left: -3px;
+            margin-right: 10.25px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

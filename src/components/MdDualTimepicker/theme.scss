@@ -1,0 +1,71 @@
+.md-dual-timepicker-dialog {
+  @include md-theme-component() {
+    @include md-theme-property(background-color, background);
+    @include md-theme-property(color, text-primary, background);
+
+    .md-dual-timepicker-header {
+      @if md-get-theme-mode() == light {
+        @include md-theme-property(background-color, primary);
+        @include md-theme-property(color, text-primary, primary);
+      } @else {
+        @include md-theme-property(background-color, text-primary, "", 0.06);
+        @include md-theme-property(color, text-primary, background);
+      }
+    }
+
+    .md-dual-timepicker-body-header {
+      &:after,
+      &:before {
+        @include md-theme-property(background-color, background);
+      }
+    }
+
+    .md-dual-timepicker-body-footer {
+      @include md-theme-property(background-color, background);
+      @include md-theme-property(color, text-primary, background);
+    }
+
+    .md-dual-timepicker-week {
+      @include md-theme-property(color, text-accent, background);
+    }
+
+    .md-dual-timepicker-disabled {
+      @include md-theme-property(color, disabled, background);
+    }
+
+    .md-dual-timepicker-today {
+      @include md-theme-property(color, primary, background);
+    }
+
+    .md-dual-timepicker-day-button,
+    .md-dual-timepicker-month-button,
+    .md-dual-timepicker-year-button {
+      &:hover {
+        @include md-theme-property(background-color, divider);
+      }
+    }
+
+    .md-dual-timepicker-day-button {
+      &.md-dual-timepicker-selected {
+        @include md-theme-property(background-color, primary);
+        @include md-theme-property(color, text-primary, primary);
+      }
+    }
+
+    .md-dual-timepicker-month-button,
+    .md-dual-timepicker-year-button {
+      &.md-dual-timepicker-selected {
+        @include md-theme-property(color, primary, background);
+      }
+    }
+
+    .md-dual-timepicker-year-selector {
+      @include md-theme-property(border-bottom-color, divider, background);
+    }
+  }
+}
+.md-dual-timepicker {
+  .md-dual-timepicker {
+    display: none;
+  }
+}
