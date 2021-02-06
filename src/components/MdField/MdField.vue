@@ -134,13 +134,13 @@
 <style lang="scss">
   @import "~components/MdAnimation/variables";
 
-  $md-input-height: 32px;
+  $md-input-height: 40px;
 
   .md-field {
     width: 100%;
-    min-height: 48px;
-    margin: 4px 0 24px;
-    padding-top: 16px;
+    min-height: 40px;
+    margin: 4px 0 20px;
+    padding-top: 10px;
     display: flex;
     position: relative;
     font-family: inherit;
@@ -262,8 +262,9 @@
     .md-count {
       height: 20px;
       position: absolute;
-      bottom: -22px;
+      bottom: -24px;
       font-size: 12px;
+      margin-top: 4px;
       transition: .3s $md-transition-default-timing;
     }
 
@@ -477,7 +478,7 @@
         margin: 0;
         position: absolute;
         right: 0;
-        bottom: -2px;
+        bottom: 0px;
 
         svg {
           width: 22px;
@@ -557,7 +558,7 @@
       }
     }
     &.md-has-password .md-toggle-password{
-      top: 52%;
+      top: 50%;
       right: 5px;
     }
     label{
@@ -568,11 +569,9 @@
       font-weight: 600;
       font-size: 12px;
       line-height: 16px;
-
-      color: #677487;
     }
     .md-input{
-      border: 1px solid #D4D8DD;
+      border: 2px solid #D4D8DD;
       height: 40px;
       flex: initial;
       padding: 8px 16px;

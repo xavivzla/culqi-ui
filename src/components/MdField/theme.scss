@@ -6,13 +6,15 @@
       }
 
       &:before {
-        @include md-theme-property(background-color, primary);
+        @include md-theme-property-by-hue(background-color, blue, 500, field, '');
+
+        // @include md-theme-property(background-color, primary);
       }
 
       .md-helper-text,
       .md-count,
       label {
-        color: rgba(#000, .54);
+        color: #677487;
       }
 
       .md-suffix, .md-prefix {
@@ -157,11 +159,11 @@
       }
     }
 
-    &.md-focused {
-      label {
-        @include md-theme-property(color, primary, background);
-      }
-    }
+    // &.md-focused {
+    //   label {
+    //     @include md-theme-property(color, primary, background);
+    //   }
+    // }
 
     &.md-disabled {
       .md-icon svg {
@@ -172,7 +174,8 @@
     &.md-outlined{
       &.md-focused {
         .md-input{
-          @include md-theme-property(border-color, primary);
+          @include md-theme-property-by-hue(border-color, blue, 500, field, '');
+          // @include md-theme-property(border-color, primary);
         }
       }
     }

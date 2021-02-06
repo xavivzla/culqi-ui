@@ -42,8 +42,8 @@
 <style lang="scss">
   @import "~components/MdAnimation/variables";
 
-  $md-checkbox-size: 20px;
-  $md-checkbox-touch-size: 48px;
+  $md-checkbox-size: 12px;
+  $md-checkbox-touch-size: 12px;
 
   .md-checkbox {
     width: auto;
@@ -90,10 +90,10 @@
       }
 
       &:after {
-        width: 6px;
-        height: 13px;
+        width: 4px;
+        height: 7px;
         top: 0;
-        left: 5px;
+        left: 3px;
         z-index: 12;
         border: 2px solid transparent;
         border-top: 0;
