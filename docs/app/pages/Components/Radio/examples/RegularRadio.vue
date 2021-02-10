@@ -4,8 +4,9 @@
     <md-radio v-model="radio" value="my-radio">String</md-radio>
     <md-radio v-model="radio" :value="objA">Object A</md-radio>
     <md-radio v-model="radio" :value="objB">Object B</md-radio>
-    <md-radio v-model="radio">No Value</md-radio>
-    <md-radio v-model="radio" disabled>Disabled</md-radio>
+    <md-radio v-model="radio">No Value (Default)</md-radio>
+    <md-radio v-model="radio" class="md-primary" disabled>Disabled Primary</md-radio>
+    <md-radio v-model="radio" class="md-secondary" disabled>Disabled Secondary</md-radio>
 
     <small>Model value: {{ radio }}</small>
   </div>

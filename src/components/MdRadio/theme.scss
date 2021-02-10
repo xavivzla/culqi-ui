@@ -1,12 +1,20 @@
 .md-radio {
   @include md-theme-component() {
     &.md-checked {
+
       .md-radio-container {
+        @include md-theme-property(background-color, accent);
         @include md-theme-property(border-color, accent);
 
         &:after {
-          @include md-theme-property(background-color, accent);
+          // @include md-theme-property(background-color, accent);
+          background-color: #fff
         }
+        
+        .md-radio-label{
+          color:#B1B8C1;
+        }
+
       }
 
       .md-ripple {
@@ -14,12 +22,31 @@
       }
     }
 
+    &.md-checked.md-disabled {
+      
+      .md-radio-label{
+        color:#B1B8C1;
+      }
+      .md-radio-container{
+        @include md-theme-property-by-hue(background-color, red, 400, md-radio, '');
+        @include md-theme-property-by-hue(border-color, red, 400, md-radio, '');
+
+        &:after{
+          background-color: #fff;
+        }
+
+      }
+    }
+
     &.md-checked.md-primary {
       .md-radio-container {
+        @include md-theme-property(background-color, primary);
         @include md-theme-property(border-color, primary);
 
         &:after {
-          @include md-theme-property(background-color, primary);
+          // @include md-theme-property(background-color, primary);
+          background-color: #fff;
+
         }
       }
 
@@ -28,9 +55,51 @@
       }
     }
 
+    &.md-checked.md-disabled.md-primary {
+      .md-radio-container{
+        @include md-theme-property-by-hue(background-color, blue, 400, md-radio, '');
+        @include md-theme-property-by-hue(border-color, blue, 400, md-radio, '');
+
+        &:after{
+          background-color: #fff;
+        }
+
+      }
+    }
+
+    &.md-checked.md-secondary {
+      .md-radio-container {
+        @include md-theme-property(background-color, secondary);
+        @include md-theme-property(border-color, secondary);
+
+        &:after {
+          background-color: #fff;
+        }
+      }
+
+      .md-ripple {
+        @include md-theme-property(color, secondary);
+      }
+    }
+    &.md-checked.md-disabled.md-secondary {
+      .md-radio-container {
+        @include md-theme-property-by-hue(background-color, purple, 400, md-radio, '');
+        @include md-theme-property-by-hue(border-color, purple, 400, md-radio, '');
+
+        &:after {
+          // @include md-theme-property(background-color, primary);
+          background-color: #fff;
+
+        }
+      }
+
+      .md-ripple {
+        @include md-theme-property(color, secondary);
+      }
+    }
     @if md-get-theme-mode() == light {
       .md-radio-container {
-        border-color: rgba(#000, .54);
+        border-color: #B1B8C1;
       }
 
       &.md-disabled {
