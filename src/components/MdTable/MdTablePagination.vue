@@ -232,11 +232,13 @@
       }
     }
   }
-  .md-menu.md-select {
-    .md-icon {
-      min-width: 7px !important;
-      width: 7px !important;
-      margin-right: 8px !important;
+  .md-table-pagination {
+    .md-menu.md-select {
+      .md-icon {
+        min-width: 7px;
+        width: 7px;
+        margin-right: 8px;
+      }
     }
   }
   .md-menu-content.md-pagination-select {

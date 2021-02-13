@@ -135,7 +135,7 @@
     }
 
     .md-checkbox-label {
-      height: $md-checkbox-size;
+      min-height: $md-checkbox-size;
       padding-left: 16px;
       position: relative;
       line-height: $md-checkbox-size;
@@ -153,6 +153,7 @@
         color: #3CB4E5;
         padding: 0 2px;
         text-decoration: underline;
+        display: contents;
       }
     }
   }
