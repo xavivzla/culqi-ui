@@ -349,7 +349,7 @@
       margin: 0;
       cursor: pointer;
       border-radius: 0;
-      font-size: 13px;
+      font-size: 14.22px;
     }
 
     .md-button-content {

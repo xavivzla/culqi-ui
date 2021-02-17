@@ -1,6 +1,7 @@
 <example src="./examples/TabRouter.vue" />
 <example src="./examples/TabAlignments.vue" />
 <example src="./examples/TabContent.vue" />
+<example src="./examples/TabContentVertical.vue" />
 <example src="./examples/TabIcons.vue" />
 <example src="./examples/TabCustomTemplate.vue" />
 
@@ -24,6 +25,13 @@
 
       <p>In the previous example, the tabs worked just like navigation buttons, without content. With that you would need to render the content by yourself. Although this is not a hard thing, because you can use Vue Router, you can pass arbitrary content to your tabs. And it can also work syncing with router:</p>
       <code-example title="Content syncing with Router" :component="examples['tab-content']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2 id="tab-inner">Vertical Tab with inner content</h2>
+
+      <p>In the previous example, the tabs worked just like navigation buttons, without content. With that you would need to render the content by yourself. Although this is not a hard thing, because you can use Vue Router, you can pass arbitrary content to your tabs. And it can also work syncing with router:</p>
+      <code-example title="Content Vertical syncing with Router" :component="examples['tab-content-vertical']" />
     </div>
 
     <div class="page-container-section">
