@@ -1,9 +1,9 @@
 <template>
   <div>
     <md-field>
-      <md-icon>event</md-icon>
       <label>Date</label>
       <md-input v-model="date"></md-input>
+      <md-icon>event</md-icon>
     </md-field>
 
     <md-field mdOutlined>
@@ -24,7 +24,7 @@
     </md-field>
 
     <md-field>
-      <md-icon class="md-accent">warning</md-icon>
+      <!-- <md-icon class="md-accent">warning</md-icon> -->
       <label>Transfer Money</label>
       <md-input v-model="money"></md-input>
       <md-icon>attach_money</md-icon>

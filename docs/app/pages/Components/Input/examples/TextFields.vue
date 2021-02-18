@@ -18,7 +18,9 @@
     <md-field>
       <label>Type here!</label>
       <md-input v-model="type"></md-input>
-      <span class="md-helper-text">Helper text</span>
+      <template v-slot:helper>
+        <span class="md-helper-text">Helper text</span>
+      </template>
     </md-field>
 
     <md-field>

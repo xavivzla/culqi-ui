@@ -14,8 +14,10 @@
     <md-field :class="messageClass">
       <label>Textarea</label>
       <md-textarea v-model="textarea" required></md-textarea>
-      <span class="md-helper-text">Helper text</span>
-      <span class="md-error">There is an error</span>
+      <template v-slot:helper>
+        <span class="md-helper-text">Helper text</span>
+        <span span class="md-error">There is an error</span>
+      </template>
     </md-field>
 
     <md-switch v-model="hasMessages">{{ !hasMessages ? 'Show' : 'Hide' }} Errors</md-switch>

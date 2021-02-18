@@ -138,6 +138,7 @@
       min-height: $md-checkbox-size;
       padding-left: 16px;
       position: relative;
+      margin-top: -3px;
       line-height: $md-checkbox-size;
 
       font-family: 'Archivo', sans-serif;
