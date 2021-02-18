@@ -33,8 +33,11 @@
 
     &.md-checked.md-primary {
       .md-checkbox-container {
-        @include md-theme-property(background-color, primary);
-        @include md-theme-property(border-color, primary);
+        @include md-theme-property-by-hue(background-color, blue, 500, field, '');
+        @include md-theme-property-by-hue(border-color, blue, 500, field, '');
+
+        // @include md-theme-property(background-color, primary);
+        // @include md-theme-property(border-color, primary);
       }
 
       .md-ripple {

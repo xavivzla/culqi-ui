@@ -1,7 +1,7 @@
 {
   "name": "culqi-ui",
   "description": "Culqi Design for Vue.js",
-  "version": "1.0.3-beta-18",
+  "version": "1.0.3-beta-23",
   "license": "MIT",
   "author": {
     "name": "xavier gonzalez",
@@ -54,7 +54,6 @@
     "vue2-daterange-picker": "^0.5.1"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
     "autoprefixer": "^7.2.6",
     "avoriaz": "^6.3.0",
     "axios": "^0.18.0",
@@ -80,6 +79,7 @@
     "cz-conventional-changelog": "^2.1.0",
     "date-fns": "^2.0.0-alpha.27",
     "deepmerge": "^3.2.0",
+    "dotenv": "^8.2.0",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.8.0",

@@ -135,9 +135,10 @@
     }
 
     .md-checkbox-label {
-      height: $md-checkbox-size;
+      min-height: $md-checkbox-size;
       padding-left: 16px;
       position: relative;
+      margin-top: -3px;
       line-height: $md-checkbox-size;
 
       font-family: 'Archivo', sans-serif;
@@ -153,6 +154,7 @@
         color: #3CB4E5;
         padding: 0 2px;
         text-decoration: underline;
+        display: contents;
       }
     }
   }

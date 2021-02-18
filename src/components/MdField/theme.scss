@@ -1,17 +1,27 @@
 .md-field {
   @include md-theme-component() {
     @if md-get-theme-mode() == light {
-      &:after {
-        background-color: rgba(#000, .42);
+      .md-field-content {
+        &:after {
+          background-color: rgba(#000, .42);
+        }
       }
 
-      &:before {
-        @include md-theme-property-by-hue(background-color, blue, 500, field, '');
-
-        // @include md-theme-property(background-color, primary);
+      .md-field-content {
+        &:before {
+          @include md-theme-property-by-hue(background-color, blue, 500, field, '');
+  
+          // @include md-theme-property(background-color, primary);
+        }
       }
 
-      .md-helper-text,
+      .md-helper-text {
+        color: #677487;
+        font-size: 12px;
+        font-weight: normal;
+        height: auto;
+        position: initial;
+      }
       .md-count,
       label {
         color: #677487;
@@ -114,9 +124,11 @@
       }
     }
 
-    > .md-icon {
-      &:after {
-        @include md-theme-property(background-color, background-variant);
+    > .md-field-content {
+      .md-icon {
+        &:after {
+          @include md-theme-property(background-color, background-variant);
+        }
       }
     }
 
@@ -131,12 +143,12 @@
         }
       }
 
-      label {
-        @include md-theme-property-by-hue(color, red, A400, field, error);
-      }
+      // label {
+      //   @include md-theme-property-by-hue(color, red, A400, field, error);
+      // }
 
       .md-error {
-        @include md-theme-property-by-hue(color, red, A400, field, error);
+        @include md-theme-property-by-hue(color, red, 900, field, error);
       }
 
       .md-date-icon,
@@ -158,12 +170,6 @@
         @include md-theme-property(fill, primary, background);
       }
     }
-
-    // &.md-focused {
-    //   label {
-    //     @include md-theme-property(color, primary, background);
-    //   }
-    // }
 
     &.md-disabled {
       .md-icon svg {

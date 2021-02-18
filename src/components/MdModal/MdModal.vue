@@ -130,6 +130,9 @@
       // box-shadow: 0px 8px 12px rgba(9, 30, 66, 0.15), 0px 0px 1px rgba(9, 30, 66, 0.31);
       border-radius: 4px;
       padding: 20px;
+      max-height: 60vh;
+      display: flex;
+      flex-direction: column;
     }
   }
 </style>
