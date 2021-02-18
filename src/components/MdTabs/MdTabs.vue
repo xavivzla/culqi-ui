@@ -1,6 +1,6 @@
 <template>
-  <div class="md-tabs" :class="[tabsClasses, $mdActiveTheme]">
-    <div class="md-tabs-navigation" :class="navigationClasses" ref="navigation">
+  <div class="md-tabs" :class="[orientationClassesContainer, tabsClasses, $mdActiveTheme]">
+    <div class="md-tabs-navigation" :class="[orientationClassesTabs, navigationClasses]" ref="navigation">
       <md-button
         v-for="({ label, props, icon, disabled, data, events }, index) in MdTabs.items"
         :key="index"
@@ -64,7 +64,11 @@
       mdSyncRoute: Boolean,
       mdDynamicHeight: Boolean,
       mdActiveTab: [String, Number],
-      mdIsRtl: { type: Boolean, default: false }
+      mdIsRtl: { type: Boolean, default: false },
+      directionTab: {
+        type: String,
+        default: 'horizontal'
+      },
     },
     data: () => ({
       resizeObserver: null,
@@ -81,7 +85,7 @@
       MdTabs: {
         items: {}
       },
-      activeButtonEl: null
+      activeButtonEl: null,
     }),
     provide () {
       return {
@@ -101,7 +105,13 @@
       },
       mdSwipeElement () {
         return this.$refs.tabsContent.$el
-      }
+      },
+      orientationClassesContainer(){
+        return "md-container-" + this.directionTab.toLowerCase();
+      },
+      orientationClassesTabs(){
+        return "md-tabs-" + this.directionTab.toLowerCase();
+      },
     },
     watch: {
       MdTabs: {
@@ -280,7 +290,14 @@
 
   .md-tabs {
     display: flex;
-    flex-direction: column;
+
+    &.md-container-horizontal{
+      flex-direction: column;
+    }
+
+    &.md-container-vertical{
+      flex-direction: row;
+    }
 
     &.md-no-transition * {
       transition: none !important;
@@ -341,6 +358,14 @@
   .md-tabs-navigation {
     display: flex;
     position: relative;
+
+    &.md-tabs-horizontal{
+      flex-direction: row;
+    }
+
+    &.md-tabs-vertical{
+      flex-direction: column;
+    }
 
     .md-button {
       max-width: 264px;

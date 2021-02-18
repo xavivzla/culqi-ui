@@ -1,12 +1,8 @@
 <template>
   <div>
-    <md-tabs md-sync-route>
+    <md-tabs directionTab="vertical" md-sync-route>
       <md-tab id="tab-home" md-label="Home" to="/components/tabs" exact>
         Home Tab
-      </md-tab>
-
-      <md-tab id="tab-home2" md-label="Opcion2" to="/components/tabs/prueba" exact>
-        Home Tab 2
       </md-tab>
 
       <md-tab id="tab-pages" md-label="Pages" to="/components/tabs/pages">
@@ -29,6 +25,6 @@
 
 <script>
 export default {
-  name: 'TabContent'
+  name: 'TabContentVertical'
 }
 </script>
