@@ -69,8 +69,8 @@
 <style lang="scss">
   @import "~components/MdAnimation/variables";
 
-  $md-radio-size: 20px;
-  $md-radio-touch-size: 48px;
+  $md-radio-size: 14px;
+  $md-radio-touch-size: 14px;
 
   .md-radio {
     width: auto;
@@ -78,11 +78,26 @@
     display: inline-flex;
     position: relative;
 
+    &.md-disabled{
+      .md-radio-label{
+        font-family: "Archivo";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: #B1B8C1;  
+      }
+    }
+
     &:not(.md-disabled) {
       cursor: pointer;
 
       .md-radio-label {
         cursor: pointer;
+        font-family: "Archivo";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: #3E4B61;
       }
     }
 
@@ -144,7 +159,7 @@
     }
 
     .md-radio-label {
-      height: $md-radio-size;
+      // height: $md-radio-size;
       padding-left: 16px;
       position: relative;
       line-height: $md-radio-size;

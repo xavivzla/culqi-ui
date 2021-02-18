@@ -1,6 +1,8 @@
 <template>
   <div>
-    <md-modal :open="false">
+    <md-button @click="_handleClick">Show</md-button>
+
+    <md-modal :md-active.sync="showModal">
       <md-modal-header>
         header
       </md-modal-header>
@@ -8,7 +10,7 @@
         body
       </md-modal-body>
       <md-modal-footer>
-        footer
+        <md-button @click="_handleClick">Cancel</md-button>
       </md-modal-footer>
     </md-modal>
   </div>
@@ -16,7 +18,15 @@
 
 <script>
   export default {
-    name: 'Example'
+    name: 'Example',
+    data: () => ({
+      showModal: false
+    }),
+    methods: {
+      _handleClick () {
+        this.showModal = !this.showModal
+      }
+    }
   }
 </script>
 

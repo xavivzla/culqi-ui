@@ -217,10 +217,11 @@
 
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-family: Archivo;
+    font-family: 'Archivo', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
+    color: #677487;
   }
 
   .md-table-sortable-icon {

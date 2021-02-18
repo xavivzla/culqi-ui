@@ -4,6 +4,7 @@
       <md-ripple md-centered :md-active.sync="rippleActive" :md-disabled="disabled">
         <input :id="id" type="checkbox" v-bind="attrs" :indeterminate.prop="indeterminate">
       </md-ripple>
+      <md-check-mark-icon class="md-checkbox-check" />
     </div>
 
     <label :for="id" class="md-checkbox-label" v-if="$slots.default" @click.prevent="toggleCheck">
@@ -14,12 +15,16 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
+  import MdCheckMarkIcon from 'core/icons/MdCheckMarkIcon'
   import MdCheckboxMixin from 'components/MdCheckbox/MdCheckboxMixin'
   import MdUuid from 'core/utils/MdUuid'
 
   export default new MdComponent({
     name: 'MdCheckbox',
     mixins: [MdCheckboxMixin],
+    components: {
+      MdCheckMarkIcon
+    },
     props: {
       id: {
         type: String,
@@ -42,8 +47,8 @@
 <style lang="scss">
   @import "~components/MdAnimation/variables";
 
-  $md-checkbox-size: 20px;
-  $md-checkbox-touch-size: 48px;
+  $md-checkbox-size: 12px;
+  $md-checkbox-touch-size: 12px;
 
   .md-checkbox {
     width: auto;
@@ -72,8 +77,7 @@
         outline: none;
       }
 
-      &:before,
-      &:after {
+      &:before {
         position: absolute;
         transition: $md-transition-drop;
         content: " ";
@@ -89,18 +93,18 @@
         transform: translate(-50%, -50%);
       }
 
-      &:after {
-        width: 6px;
-        height: 13px;
-        top: 0;
-        left: 5px;
-        z-index: 12;
-        border: 2px solid transparent;
-        border-top: 0;
-        border-left: 0;
-        opacity: 0;
-        transform: rotate(45deg) scale3D(.15, .15, 1);
-      }
+      // &:after {
+      //   width: 4px;
+      //   height: 7px;
+      //   top: 0;
+      //   left: 3px;
+      //   z-index: 12;
+      //   border: 2px solid transparent;
+      //   border-top: 0;
+      //   border-left: 0;
+      //   opacity: 0;
+      //   transform: rotate(45deg) scale3D(.15, .15, 1);
+      // }
 
       .md-ripple {
         width: $md-checkbox-touch-size !important;
@@ -117,11 +121,39 @@
       }
     }
 
+    .md-checkbox-check {
+      position: absolute;
+      top: 1.2px;
+      left: 0.5px;
+      width: 8px;
+      height: 6px;
+      min-width: 8px;
+      opacity: 0;
+      svg {
+        fill: #fff !important;
+      }
+    }
+
     .md-checkbox-label {
       height: $md-checkbox-size;
       padding-left: 16px;
       position: relative;
       line-height: $md-checkbox-size;
+
+      font-family: 'Archivo', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      color: #3E4B61;
+      a {
+        display: inline-block;
+        color: #3CB4E5;
+        padding: 0 2px;
+        text-decoration: underline;
+      }
     }
   }
 
@@ -148,12 +180,18 @@
         transform: rotate(45deg) scale3D(1, 1, 1);
         transition: $md-transition-stand;
       }
+      .md-checkbox-check {
+        opacity: 1;
+      }
     }
   }
 
   .md-checkbox.md-disabled.md-checked {
     .md-checkbox-container {
-      border-color: transparent !important;
+      border-color: #D4D8DD !important;
+    }
+    .md-checkbox-label {
+      color: #B1B8C1;
     }
   }
 

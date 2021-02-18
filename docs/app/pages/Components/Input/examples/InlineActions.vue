@@ -13,6 +13,7 @@
     <md-field mdOutlined>
       <label>Password toggle</label>
       <md-input v-model="password" type="password"></md-input>
+      <span class="md-helper-text">Helper text</span>
     </md-field>
 
     <md-field :md-toggle-password="false">

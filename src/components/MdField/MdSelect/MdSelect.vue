@@ -333,6 +333,11 @@
     display: flex;
     flex: 1;
     overflow: auto;
+    .md-icon {
+      min-width: 13px;
+      width: 13px;
+      margin-right: 16px;
+    }
 
     &:not(.md-disabled) {
       .md-input,
@@ -357,6 +362,11 @@
       position: absolute;
       clip: rect(0 0 0 0);
       border: 0;
+    }
+
+    input {
+      -webkit-text-fill-color: #677487 !important;
+      color: #677487 !important;
     }
   }
   .md-menu-content.md-select-menu {

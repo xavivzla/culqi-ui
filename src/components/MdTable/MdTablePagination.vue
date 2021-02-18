@@ -165,26 +165,7 @@
 
 <style lang="scss">
   @import "~components/MdAnimation/variables";
-  .md-custom-button-pagination{
-    min-width: auto;
-    font-family: Archivo;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    color: #677487;
-    background: #FFFFFF;
-    border: 1px solid #EAECEE;
-    box-sizing: border-box;
-    border-radius: 4px;
-    &.active{
-      background: #3CB4E5;
-      border: 1px solid #3CB4E5;
-      color: #fff;
-    }
-    .md-button-content{
-      padding: 6px 4px;
-    }
-  }
+  
 
   .md-table-pagination {
     height: 56px;
@@ -195,12 +176,11 @@
     border-top: 1px solid;
     font-size: 12px;
     padding: 7px 16px;
-
     &-label{
       font-family: 'Archivo', sans-serif;
       font-style: normal;
       font-weight: normal;
-      font-size: 11.24px;
+      font-size: 12px;
       line-height: 16px;
       color: #3E4B61;
     }
@@ -210,9 +190,17 @@
       align-items: center;
     }
 
-    .md-table-pagination-previous {
-      margin-right: 2px;
-      margin-left: 18px;
+    .md-table-pagination-previous,
+    .md-table-pagination-next {
+      // margin-right: 2px;
+      // margin-left: 18px;
+      min-width: 24px;
+      min-height: 24px;
+      width: 24px;
+      height: 24px;
+      .md-icon {
+        color: #3E4B61;
+      }
     }
 
     .md-field {
@@ -236,17 +224,21 @@
         height: auto;
         font-family: 'Archivo', sans-serif;
         font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        color: #677487;
+        font-weight: normal;
       }
 
       .md-select-value {
-        font-size: 13px;
+        font-size: 12px;
       }
     }
   }
-
+  .md-menu.md-select {
+    .md-icon {
+      min-width: 7px !important;
+      width: 7px !important;
+      margin-right: 8px !important;
+    }
+  }
   .md-menu-content.md-pagination-select {
     max-width: 82px;
     min-width: 56px;
