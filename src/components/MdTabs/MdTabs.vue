@@ -24,7 +24,7 @@
           </template>
         </template>
       </md-button>
-      <span class="md-tabs-indicator" :style="indicatorStyles" :class="indicatorClass" ref="indicator"></span>
+      <span  :style="indicatorStyles" :class="[indicatorClass, orientationIndicatorClasses]" ref="indicator"></span>
     </div>
 
     <md-content ref="tabsContent" class="md-tabs-content" :style="contentStyles" v-show="hasContent">
@@ -86,6 +86,8 @@
         items: {}
       },
       activeButtonEl: null,
+      orientationTab: null,
+      contentHeight: null,
     }),
     provide () {
       return {
@@ -112,6 +114,25 @@
       orientationClassesTabs(){
         return "md-tabs-" + this.directionTab.toLowerCase();
       },
+      orientationIndicatorClasses(){
+        if(this.directionTab === 'horizontal'){
+          this.orientationTab = 'md-tabs-indicator';
+        }
+        else{
+          this.orientationTab = 'md-tabs-indicator-vertical';
+        }
+        return this.orientationTab;
+      },
+      // contentHeightClasses(){
+      //   if(this.directionTab === 'horizontal'){
+      //     this.contentHeight = 'md-tabs-content';
+      //   }
+      //   else{
+      //     this.contentHeight = 'md-tabs-content-vertical';
+      //   }
+      //   return this.contentHeight;
+      // }
+
     },
     watch: {
       MdTabs: {
@@ -191,39 +212,102 @@
         this.hasContent = keys.some(key => items[key].hasContent)
       },
       setIndicatorStyles () {
-        raf(() => {
-          this.$nextTick().then(() => {
-            // this.setActiveButtonEl()
-            if (this.activeButtonEl && this.$refs.indicator) {
-              const buttonWidth = this.activeButtonEl.offsetWidth
-              const buttonLeft = this.activeButtonEl.offsetLeft
-              const indicatorLeft = this.$refs.indicator.offsetLeft
-
-              if (indicatorLeft < buttonLeft) {
-                this.indicatorClass = 'md-tabs-indicator-right'
+        if(this.directionTab === 'horizontal'){
+          raf(() => {
+            this.$nextTick().then(() => {
+              // this.setActiveButtonEl()
+              if (this.activeButtonEl && this.$refs.indicator) {
+                const buttonWidth = this.activeButtonEl.offsetWidth
+                const buttonLeft = this.activeButtonEl.offsetLeft
+                const indicatorLeft = this.$refs.indicator.offsetLeft
+  
+                if (indicatorLeft < buttonLeft) {
+                  this.indicatorClass = 'md-tabs-indicator-right'
+                } else {
+                  this.indicatorClass = 'md-tabs-indicator-left'
+                }
+  
+                this.indicatorStyles = {
+                  left: `${buttonLeft}px`,
+                  right: `calc(100% - ${buttonWidth + buttonLeft}px)`
+                }
               } else {
-                this.indicatorClass = 'md-tabs-indicator-left'
+                this.indicatorStyles = {
+                  left: '100%',
+                  right: '100%'
+                }
               }
-
-              this.indicatorStyles = {
-                left: `${buttonLeft}px`,
-                right: `calc(100% - ${buttonWidth + buttonLeft}px)`
-              }
-            } else {
-              this.indicatorStyles = {
-                left: '100%',
-                right: '100%'
-              }
-            }
+            })
           })
-        })
+        }else{
+          raf(() => {
+            this.$nextTick().then(() => {
+              // this.setActiveButtonEl()
+              if (this.activeButtonEl && this.$refs.indicator) {
+                const buttonHeight = this.activeButtonEl.offsetHeight
+                const buttonTop = this.activeButtonEl.offsetTop
+                const indicatorTop = this.$refs.indicator.offsetTop
+
+                if (indicatorTop < buttonTop) {
+                  this.indicatorClass = '.md-tabs-indicator-top'
+                } else {
+                  this.indicatorClass = '.md-tabs-indicator-bottom'
+                }
+
+                this.indicatorStyles = {
+                  top: `${buttonTop}px`,
+                  bottom: `calc(100% - ${buttonHeight + buttonTop}px)`
+                }
+              } else {
+                this.indicatorStyles = {
+                  top: '100%',
+                  bottom: '100%'
+                }
+              }
+            })
+          })
+        }
       },
+      // setIndicatorStylesVertical () {
+      //   raf(() => {
+      //     this.$nextTick().then(() => {
+      //       // this.setActiveButtonEl()
+      //       if (this.activeButtonEl && this.$refs.indicator) {
+      //         const buttonHeight = this.activeButtonEl.offsetHeight
+      //         const buttonTop = this.activeButtonEl.offsetTop
+      //         const indicatorTop = this.$refs.indicator.offsetTop
+
+      //         if (indicatorTop < buttonTop) {
+      //           this.indicatorClass = '.md-tabs-indicator-top'
+      //         } else {
+      //           this.indicatorClass = '.md-tabs-indicator-bottom'
+      //         }
+
+      //         this.indicatorStyles = {
+      //           top: `${buttonTop}px`,
+      //           bottom: `calc(100% - ${buttonHeight + buttonTop}px)`
+      //         }
+      //       } else {
+      //         this.indicatorStyles = {
+      //           top: '100%',
+      //           bottom: '100%'
+      //         }
+      //       }
+      //     })
+      //   })
+      // },
       calculateTabPos () {
         if (this.hasContent) {
           const tabElement = this.$el.querySelector(`.md-tab:nth-child(${this.activeTabIndex + 1})`)
 
-          this.contentStyles = {
-            height: tabElement ? `${tabElement.offsetHeight}px` : 0
+          if(this.directionTab === "horizontal"){
+            this.contentStyles = {
+                height: tabElement ? `${tabElement.offsetHeight}px` : 0
+            }
+          }else{
+            this.contentStyles = {
+                height: tabElement ? `192px` : 0
+            }
           }
           this.containerStyles = {
             transform: `translate3D(${this.mdIsRtl ? (this.activeTabIndex) * 100 : (-this.activeTabIndex) * 100}%, 0, 0)`
@@ -423,11 +507,38 @@
     }
   }
 
+  .md-tabs-indicator-vertical {
+    height: 48px;
+    width: 2px;
+    background-color: #169cd0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateZ(0);
+    will-change: top, bottom;
+
+    &.md-tabs-indicator-top {
+      transition: top .3s $md-transition-default-timing,
+                  bottom .35s $md-transition-default-timing;
+    }
+
+    &.md-tabs-indicator-bottom {
+      transition: top .3s $md-transition-default-timing,
+                  bottom .35s $md-transition-default-timing;
+    }
+  }
+
   .md-tabs-content {
     overflow: hidden;
     transition: none;
     will-change: height;
   }
+
+  // .md-tabs-content-vertical {
+  //   overflow: hidden;
+  //   transition: none;
+  //   height: 190px;
+  // }
 
   .md-tabs-container {
     display: flex;
