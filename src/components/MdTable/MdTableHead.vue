@@ -200,7 +200,7 @@
 
   .md-table-head-container {
     height: 40px;
-    padding: 0 16px;
+    padding: 0 13px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

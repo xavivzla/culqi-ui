@@ -2,7 +2,7 @@
   <div>
     <md-button @click="_handleClick">Show</md-button>
 
-    <md-modal :md-active.sync="showModal">
+    <md-modal :md-active.sync="showModal" :md-click-outside-to-close="false">
       <md-modal-header>
         header
       </md-modal-header>

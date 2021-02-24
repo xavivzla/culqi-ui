@@ -240,9 +240,9 @@
   @import "~components/MdElevation/mixins";
   @import "~components/MdLayout/mixins";
 
-  .md-outlined {
+  .md-field.md-autocomplete.md-outlined {
     .md-input-action{
-      top: 53% !important;
+      top: 40%;
     }
   }
 

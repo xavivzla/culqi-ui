@@ -1,7 +1,7 @@
 .md-checkbox {
   @include md-theme-component() {
     .md-checkbox-container {
-      border-radius: 4px;
+      border-radius: 2px;
     }
     &.md-checked {
       .md-checkbox-container {
@@ -20,8 +20,8 @@
 
     &.md-indeterminate {
       .md-checkbox-container {
-        border-color: rgba(#000, .54);
-        background-color: rgba(#fff, .3);
+        // border-color: rgba(#000, .54);
+        // background-color: rgba(#fff, .3);
         &:after {
           border-color: rgba(#000, .54);
         }
@@ -48,8 +48,8 @@
     @if md-get-theme-mode() == light {
       &.md-indeterminate {
         .md-checkbox-container {
-          border-color: rgba(#000, .54);
-          background-color: transparent;
+          // border-color: rgba(#000, .54);
+          // background-color: transparent;
           &:after {
             border-color: rgba(#000, .54);
           }
@@ -59,12 +59,12 @@
         }
       }
       .md-checkbox-container {
-        border-color: rgba(#000, .54);
+        // border-color: rgba(#000, .54);
       }
 
       &.md-disabled {
         .md-checkbox-container {
-          border-color: rgba(#000, .26);
+          // border-color: rgba(#000, .26);
         }
 
         &.md-checked {
