@@ -1,6 +1,9 @@
 .md-tooltip {
   @include md-theme-component() {
     @include md-theme-property(color, text-primary, tooltip);
-    @include md-theme-property(background-color, tooltip, background, .9);
+    @include md-theme-property(background-color, tooltip, background, 1);
+  }
+  &:after {
+    border-color: transparent transparent md-theme(tooltip) transparent;
   }
 }

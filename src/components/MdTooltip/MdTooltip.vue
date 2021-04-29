@@ -3,6 +3,7 @@
     <transition name="md-tooltip" v-if="shouldRender">
       <div class="md-tooltip" :class="[tooltipClasses, $mdActiveTheme]" :style="tooltipStyles">
         <slot />
+        <div class="md-tooltip-arrow"></div>
       </div>
     </transition>
   </md-popover>
@@ -103,18 +104,67 @@
 
   .md-tooltip {
     height: $md-tooltip-height;
-    padding: 0 8px;
+    padding: 6px 12px;
     position: fixed;
     z-index: 111;
     pointer-events: none;
-    border-radius: 2px;
+    border-radius: 4px;
     transition: .15s $md-transition-enter-timing;
     transition-property: opacity, transform;
     will-change: opacity, transform, top, left !important;
     font-size: 10px;
-    line-height: $md-tooltip-height;
+    line-height: 16px;
     text-transform: none;
     white-space: nowrap;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 10px 10px 10px;
+      margin: auto;
+    }
+
+    &.md-tooltip-top {
+        &:after {
+          bottom: 0;
+          left: 0;
+          right: 0;
+          transform: rotate(180deg) translateY(-7px);
+        }
+      }
+
+      &.md-tooltip-right {
+        &:after {
+          bottom: 0;
+          top: 0;
+          left: 0;
+          transform: rotate(-90deg) translateY(-11px);
+        }
+      }
+
+      &.md-tooltip-bottom {
+        &:after {
+          top: 0;
+          left: 0;
+          right: 0;
+          transform: rotate(0deg) translateY(-7px);
+        }
+      }
+
+      &.md-tooltip-left {
+        &:after {
+          bottom: 0;
+          right: 0;
+          top: 0;
+          transform: rotate(90deg) translateY(-11px);
+        }
+      }
 
     @include md-layout-small {
       height: $md-tooltip-height-mobile;

@@ -621,7 +621,7 @@ $md-input-height: 40px;
       padding: 0 5px;
       background-color: #fff;
       height: 96%;
-      right: 1px;
+      right: 11px;
       border-radius: 0 4px 4px 0;
     }
   }

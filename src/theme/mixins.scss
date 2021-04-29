@@ -41,9 +41,7 @@
 
 @mixin md-register-theme ($name, $palette: $md-default-palette) {
   $palette: map-merge($md-default-palette, $palette);
-  $theme: map-merge($md-themes, (
-    #{$name}: $palette
-  ));
+  $theme: map-merge($md-themes, (#{$name}: $palette));
 
   :root {
     @each $type, $value in $palette {
@@ -168,7 +166,6 @@
   @if $opacity != "" {
     $value: rgba($value, $opacity);
   }
-
   #{$property}: $value;
   #{$property}: var(--md-theme-#{$md-current-theme}-#{$type}#{$variant}, $value);
 }

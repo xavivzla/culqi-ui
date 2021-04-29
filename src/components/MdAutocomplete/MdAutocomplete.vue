@@ -1,7 +1,6 @@
 <template>
   <md-field class="md-autocomplete" :class="fieldClasses" md-clearable :md-inline="isBoxLayout" :mdOutlined="mdOutlined">
     <slot />
-    
     <md-menu md-direction="bottom-start"
     :md-dense="mdDense"
     md-align-trigger
@@ -26,11 +25,25 @@
           <md-progress-spinner :md-diameter="40" :md-stroke="4" md-mode="indeterminate" />
         </div>
 
-        <div class="md-autocomplete-items" v-if="hasFilteredItems">
+        <div class="md-autocomplete-items" v-if="hasFilteredItems && !mdGroup">
           <md-menu-item v-for="(item, index) in getOptions()" :key="index" @click="selectItem(item, $event)">
             <slot name="md-autocomplete-item" :item="item" :term="searchTerm" v-if="$scopedSlots['md-autocomplete-item']" />
             <template v-else>{{ item }}</template>
           </md-menu-item>
+        </div>
+
+        <div class="md-autocomplete-items md-autocomplete-items-group" v-else-if="hasFilteredItems && mdGroup">
+          <div class="md-autocomplete-groups" v-for="(group, index) in getOptions()" :key="index">
+            <p>{{group[mdGroupName]}}</p>
+            <md-menu-item v-for="(item, indexItem) in group[mdGroupItem]" :key="indexItem" @click="selectItem({
+              ...group,
+              [mdGroupItem]: item
+            }, $event)">
+              <slot name="md-autocomplete-item" :item="item" :term="searchTerm" v-if="$scopedSlots['md-autocomplete-item']" />
+              <template v-else>{{ item[mdGroupItemLabel] }}</template>
+            </md-menu-item>
+
+          </div>
         </div>
 
         <md-menu-item v-else-if="hasScopedEmptySlot">
@@ -52,6 +65,18 @@
   export default {
     name: 'MdAutocomplete',
     props: {
+      mdGroupItem: {
+        type: String
+      },
+      mdGroupItemLabel: {
+        type: String
+      },
+      mdGroupName: {
+        type: String
+      },
+      mdGroup: {
+        type: Boolean,
+      },
       mdOutlined: {
         type: Boolean,
       },
@@ -88,6 +113,7 @@
     data () {
       return {
         searchTerm: this.value,
+        groupTerm: null,
         showMenu: false,
         triggerPopover: false,
         isPromisePending: false,
@@ -166,29 +192,56 @@
         return isPromise(obj)
       },
       matchText (item) {
-        const target = item.toLowerCase()
-        const search = this.searchTerm.toLowerCase()
+        if (item) {
+          const target = item.toLowerCase()
+          const search = this.searchTerm.toLowerCase()
 
-        if (this.mdFuzzySearch) {
-          return fuzzy(search, target)
+          if (this.mdFuzzySearch) {
+            return fuzzy(search, target)
+          }
+
+          return target.includes(search)
         }
-
-        return target.includes(search)
       },
       filterByString () {
         return this.mdOptions.filter(item => this.matchText(item))
       },
       filterByObject () {
-        return this.mdOptions.filter(item => {
-          const values = Object.values(item)
-          const valuesCount = values.length
+        if(this.mdGroup) {
+          const search = this.mdOptions.map(item => {
+            const details = item[this.mdGroupItem].filter(detail => {
+              const values = Object.values(detail)
+              const valuesCount = values.length
+              for (let i = 0; i <= valuesCount; i++) {
+                if (typeof values[i] === 'string' && this.matchText(values[i])) {
+                  return true
+                }
+              }
+            })
 
-          for (let i = 0; i <= valuesCount; i++) {
-            if (typeof values[i] === 'string' && this.matchText(values[i])) {
-              return true
+            if(details && details.length) {
+              return ({
+                ...item,
+                detail: details
+              })
+            } else {
+              return []
             }
-          }
+
         })
+          return search
+        } else {
+          return this.mdOptions.filter(item => {
+            const values = Object.values(item)
+            const valuesCount = values.length
+  
+            for (let i = 0; i <= valuesCount; i++) {
+              if (typeof values[i] === 'string' && this.matchText(values[i])) {
+                return true
+              }
+            }
+          })
+        }
       },
       openOnFocus () {
         if (this.mdOpenOnFocus) {
@@ -203,7 +256,7 @@
         }
 
         if (this.searchTerm.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
-          this.$emit('md-changed', this.searchTerm)
+          this.$emit('md-changed', this.mdGroup ? this.groupTerm : this.searchTerm)
         }
       },
       showOptions () {
@@ -225,10 +278,12 @@
       },
       selectItem (item, $event) {
         const content = $event.target.textContent.trim()
-
+        
+        this.groupTerm = item
         this.searchTerm = content
-        this.$emit('input', item)
-        this.$emit('md-selected', item)
+
+        this.$emit('input', this.mdGroup ? content : item)
+        this.$emit('md-selected', this.mdGroup ? content : item)
         this.hideOptions()
       }
     }
@@ -247,6 +302,21 @@
   }
 
   .md-autocomplete {
+    &-items {
+      &-group {
+        padding: 8px 16px;
+        p {
+          margin: 5px 0;
+          font-size: 16px;
+        }
+        li {
+          .md-list-item-content {
+            font-size: 14px;
+            min-height: 36px;
+          }
+        }
+      }
+    }
     .md-menu {
       width: 100%;
       display: flex;

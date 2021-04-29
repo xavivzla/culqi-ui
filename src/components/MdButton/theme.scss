@@ -73,10 +73,15 @@
 
 
     &.md-raised {
-      // &[disabled] {
-      //   @include md-theme-property(background-color, disabled-background, background);
-      //   @include md-theme-property(color, disabled);
-      // }
+      &[disabled] {
+        @include md-theme-property(background-color, disabled-background, background);
+        @include md-theme-property(color, disabled);
+        &.md-secondary {
+          @include md-theme-property-by-hue(color, purple, 300, '', '');
+          @include md-theme-property-by-hue(background-color, purple, 100, '', '');
+          opacity: 1;
+        }
+      }
 
       // &:not([disabled]) {
         @include md-theme-property(background-color, background);
