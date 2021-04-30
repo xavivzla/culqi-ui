@@ -597,7 +597,7 @@ $md-input-height: 40px;
     line-height: 16px;
   }
   .md-input {
-    border: 2px solid #d4d8dd;
+    border: 1px solid #d4d8dd;
     height: 40px;
     flex: initial;
     padding: 8px 16px;

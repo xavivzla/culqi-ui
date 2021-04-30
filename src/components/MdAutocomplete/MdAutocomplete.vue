@@ -249,6 +249,9 @@
         }
       },
       onInput (value) {
+        if(value !== (this.groupTerm && this.groupTerm[this.mdGroupItem] && this.groupTerm[this.mdGroupItem][this.mdGroupItemLabel])) {
+          this.groupTerm = null
+        }
         this.$emit('input', value)
 
         if (!this.mdOpenOnFocus) {
