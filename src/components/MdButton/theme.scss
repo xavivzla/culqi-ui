@@ -29,6 +29,7 @@
 
     &.md-outlined{
       border: solid 1px;
+      border-color: #D4D8DD;
       // @include md-theme-property(border-color, background);
 
       @include md-theme-property(color, text-primary, background);

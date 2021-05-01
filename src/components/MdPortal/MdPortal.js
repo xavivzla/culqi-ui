@@ -25,18 +25,20 @@ export default {
   }),
   computed: {
     transitionName () {
-      const childrenComponent = this._vnode.componentOptions.children[0]
-
-      if (childrenComponent) {
-        const transition = childrenComponent.data.transition
-
-        if (transition) {
-          return transition.name
-        } else {
-          const transition = childrenComponent.componentOptions.propsData.name
-
+      if (this._vnode.componentOptions && this._vnode.componentOptions && this._vnode.componentOptions.children[0]) {
+        const childrenComponent = this._vnode.componentOptions.children[0]
+  
+        if (childrenComponent) {
+          const transition = childrenComponent.data.transition
+  
           if (transition) {
-            return transition
+            return transition.name
+          } else {
+            const transition = childrenComponent.componentOptions.propsData.name
+  
+            if (transition) {
+              return transition
+            }
           }
         }
       }
