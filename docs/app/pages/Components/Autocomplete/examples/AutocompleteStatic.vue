@@ -9,7 +9,12 @@
       md-group-item-label="description"
       md-group-name="name"
       @md-changed="prueba">
-      <label>mdOutlined</label>
+      <label>mdOutlined group</label>
+      
+      <template v-slot:helper>
+        <span class="md-helper-text">Helper text</span>
+        <span class="md-error">There is an error</span>
+      </template>
     </md-autocomplete>
 
     <md-autocomplete v-model="selectedCountry" :md-options="countries" mdOutlined>

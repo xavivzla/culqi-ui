@@ -53,6 +53,7 @@
         </md-menu-item>
       </md-menu-content>
     </md-menu>
+    <slot name="helper" />
 
   </md-field>
 </template>
