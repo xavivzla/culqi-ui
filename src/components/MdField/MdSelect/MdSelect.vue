@@ -333,10 +333,11 @@
     display: flex;
     flex: 1;
     overflow: auto;
+    align-items: center;
     .md-icon {
       min-width: 13px;
       width: 13px;
-      margin-right: 16px;
+      // margin-right: 16px;
     }
 
     &:not(.md-disabled) {

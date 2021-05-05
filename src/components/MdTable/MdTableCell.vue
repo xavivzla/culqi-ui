@@ -220,6 +220,6 @@
   }
 
   .md-table-cell-container {
-    padding: 6px 32px 6px 24px;
+    padding: 6px 13px 6px 13px;
   }
 </style>

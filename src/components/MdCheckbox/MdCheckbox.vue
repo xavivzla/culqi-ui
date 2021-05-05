@@ -70,7 +70,10 @@
       height: $md-checkbox-size;
       position: relative;
       border-radius: 2px;
-      border: 2px solid transparent;
+      // border: 2px solid transparent;
+      background: #FFFFFF;
+      border: 2px solid #B1B8C1;
+      border-radius: 2px;
       transition: $md-transition-stand;
 
       &:focus {

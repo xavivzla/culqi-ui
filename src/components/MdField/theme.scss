@@ -156,6 +156,11 @@
         @include md-theme-property-by-hue(color, red, A400, field, error);
         @include md-theme-property-by-hue(fill, red, A400, field, error);
       }
+      &.md-outlined {
+        .md-input, .md-menu.md-select {
+          border-color: #F58585;
+        }
+      }
     }
 
     &.md-focused,

@@ -1,0 +1,28 @@
+.md-pagination {
+  .md-table-pagination {
+    @include md-theme-property(border-top-color, divider, background);
+  }
+  .md-custom-button-pagination{
+    min-width: 24px;
+    min-height: 24px;
+    font-family: 'Archivo', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    color: #677487 !important;
+    background: #FFFFFF;
+    border: 1px solid #E7E9EC;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-right: 4px;
+    &.active{
+      @include md-theme-property-by-hue(background, blue, 500, '', background);
+      @include md-theme-property-by-hue(border-color, blue, 500, '', border-color);
+      border: 1px solid;
+      color: #fff !important;
+    }
+    .md-button-content{
+      padding: 4px 0.1px;
+    }
+  }
+}

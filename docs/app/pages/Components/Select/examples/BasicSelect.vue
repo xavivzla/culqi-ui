@@ -4,7 +4,7 @@
       <div class="md-layout-item">
         <md-field mdOutlined>
           <md-select v-model="movie" name="movie" id="movie">
-            <md-option value="fight-club">Fight Club</md-option>
+            <md-option value="fight-club">Fight Club Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, corporis!</md-option>
             <md-option value="godfather">Godfather</md-option>
             <md-option value="godfather-ii">Godfather II</md-option>
             <md-option value="godfather-iii">Godfather III</md-option>

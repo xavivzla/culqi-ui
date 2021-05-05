@@ -5,7 +5,7 @@
         <span class="md-table-pagination-label">{{ mdLabel }}</span>
 
         <md-field>
-          <md-select v-model="currentPageSize" md-dense md-class="md-pagination-select" @changed="setPageSize">
+          <md-select v-model="currentPageSize" md-dense md-class="md-pagination-select">
             <md-option v-for="amount in mdPageOptions" :key="amount" :value="amount">{{ amount }}</md-option>
           </md-select>
         </md-field>
@@ -77,7 +77,8 @@
     },
     data: () => ({
       currentPageSize: 0,
-      currentInitial: 1
+      currentInitial: 1,
+      setPerPage: false
     }),
     computed: {
       generatePaginated () {
@@ -126,11 +127,16 @@
         }
       },
       currentPageSize: function( newValue ) {
-        this.currentPageSize = newValue
-        this.setPageSize()
+        if(!this.setPerPage) {
+          this.currentPageSize = newValue
+          this.setPerPage = true
+        } else {
+          this.currentPageSize = newValue
+          this.setPageSize()
+        }
       },
       mdPageSize: {
-        immediate: true,
+        // immediate: true,
         handler (pageSize) {
           this.currentPageSize = this.pageSize
         }
@@ -214,10 +220,11 @@
       padding: 0px 8px;
       padding-right: 0;
       min-height: 24px;
-
-      &:after,
-      &:before {
-        display: none;
+      &-content {
+        &:after,
+        &:before {
+          display: none;
+        }
       }
 
       input {
@@ -225,6 +232,7 @@
         font-family: 'Archivo', sans-serif;
         font-style: normal;
         font-weight: normal;
+        font-size: 12px !important;
       }
 
       .md-select-value {

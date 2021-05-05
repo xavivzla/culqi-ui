@@ -1,5 +1,10 @@
 export const routes = [
   {
+    path: '/components/pagination',
+    name: 'components/pagination',
+    page: 'Components/Pagination/Pagination.vue'
+  },
+  {
     path: '/components/calendar',
     name: 'components/calendar',
     page: 'Components/Calendar/Calendar.vue'

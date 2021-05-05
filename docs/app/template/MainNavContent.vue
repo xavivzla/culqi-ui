@@ -16,6 +16,7 @@
       <router-link to="/components/modal">{{ $t('pages.modal.title') }}</router-link>
       -->
       <router-link to="/components/calendar">{{ $t('pages.calendar.title') }}</router-link>
+      <router-link to="/components/pagination">{{ $t('pages.pagination.title') }}</router-link>
       <router-link to="/components/app">
         Components
       </router-link>
@@ -63,6 +64,7 @@
       </div>
 
       <router-link to="/components/calendar">{{ $t('pages.calendar.title') }}</router-link>
+      <router-link to="/components/pagination">{{ $t('pages.pagination.title') }}</router-link>
       <router-link to="/components/app">{{ $t('pages.app.title') }}</router-link>
       <router-link to="/components/avatar">{{ $t('pages.avatar.title') }}</router-link>
       <router-link to="/components/badge">{{ $t('pages.badge.title') }}</router-link>

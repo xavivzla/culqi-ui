@@ -158,7 +158,7 @@ $md-input-height: 40px;
 .md-field {
   width: 100%;
   min-height: 40px;
-  margin: 4px 0 20px;
+  margin: 4px 0 14px;
   padding-top: 10px;
   display: flex;
   position: relative;
@@ -179,8 +179,7 @@ $md-input-height: 40px;
       width: 100%;
     }
   }
-
-  &:not(.md-outlined) {
+  &:not(.md-outlined):not(.md-file-button) {
     .md-field-content {
       &:before,
       &:after {
@@ -300,8 +299,8 @@ $md-input-height: 40px;
   .md-error,
   .md-count {
     height: 20px;
-    position: absolute;
-    bottom: -24px;
+    // position: absolute;
+    // bottom: -24px;
     font-size: 12px;
     margin-top: 4px;
     transition: 0.3s $md-transition-default-timing;
@@ -310,10 +309,11 @@ $md-input-height: 40px;
   .md-error {
     height: auto;
     position: initial;
+    display: none;
   }
 
   .md-error {
-    display: block !important;
+    // display: block !important;
     left: 0;
     opacity: 0;
     transform: translate3d(0, -8px, 0);
@@ -467,18 +467,20 @@ $md-input-height: 40px;
     }
   }
 
-  &.md-focused,
-  &.md-has-value {
-    label {
-      pointer-events: auto;
-      top: -5px;
-      opacity: 1;
-      font-size: 12px;
-    }
+  &:not(.md-outlined):not(.md-file-button) {
+    &.md-focused,
+    &.md-has-value {
+      label {
+        pointer-events: auto;
+        top: -5px;
+        opacity: 1;
+        font-size: 12px;
+      }
 
-    .md-input,
-    .md-textarea {
-      font-size: 16px;
+      .md-input,
+      .md-textarea {
+        font-size: 16px;
+      }
     }
   }
 
@@ -560,6 +562,7 @@ $md-input-height: 40px;
 
     .md-error {
       opacity: 1;
+      display: block;
       transform: translate3d(0, 0, 0);
     }
 
@@ -594,7 +597,7 @@ $md-input-height: 40px;
     line-height: 16px;
   }
   .md-input {
-    border: 2px solid #d4d8dd;
+    border: 1px solid #d4d8dd;
     height: 40px;
     flex: initial;
     padding: 8px 16px;
@@ -608,8 +611,18 @@ $md-input-height: 40px;
   .md-menu.md-select {
     border: 1px solid #d4d8dd;
     border-radius: 4px;
+    position: relative;
     .md-input {
       border: none;
+    }
+    .md-icon {
+      min-width: 13px;
+      width: auto;
+      padding: 0 5px;
+      background-color: #fff;
+      height: 96%;
+      right: 11px;
+      border-radius: 0 4px 4px 0;
     }
   }
 

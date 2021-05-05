@@ -2,7 +2,8 @@
   @include md-theme-component() {
     .md-autocomplete-items {
       .md-highlight-text-match {
-        @include md-theme-property(color, primary, background);
+        color: #3CB4E5;
+        // @include md-theme-property(color, primary, background);
       }
     }
 

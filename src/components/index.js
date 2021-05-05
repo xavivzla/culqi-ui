@@ -1,4 +1,5 @@
 import MdApp from './MdApp'
+import MdPagination from './MdPagination'
 import MdCalendar from './MdCalendar'
 import MdModal from './MdModal'
 import MdTimeline from './MdTimeline'
@@ -54,6 +55,7 @@ export {
   MdTimeline,
   MdModal,
   MdCalendar,
+  MdPagination,
   MdApp,
   MdAutocomplete,
   MdAvatar,

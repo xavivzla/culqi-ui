@@ -74,7 +74,7 @@ $md-color-levels: (
   light: (
     background: #fff,
     background-variant: #fafafa,
-    text-primary: rgba(#000, .87),
+    text-primary: #3E4B61,
     text-accent: rgba(#000, .54),
     text-hint: rgba(#000, .38),
     disabled: rgba(#000, .26),
@@ -85,7 +85,7 @@ $md-color-levels: (
     divider: rgba(#000, .12),
     scrollbar: #757575,
     scrollbar-background: darken(#eee, 5%),
-    tooltip: #616161
+    tooltip: #3E4B61
   ),
   dark: (
     background: #424242,
