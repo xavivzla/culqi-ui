@@ -127,7 +127,7 @@
     .md-checkbox-check {
       position: absolute;
       top: 1.2px;
-      left: 0.5px;
+      left: 0.4px;
       width: 8px;
       height: 6px;
       min-width: 8px;
@@ -139,7 +139,7 @@
 
     .md-checkbox-label {
       min-height: $md-checkbox-size;
-      padding-left: 16px;
+      padding-left: 10px;
       position: relative;
       margin-top: -3px;
       line-height: $md-checkbox-size;
