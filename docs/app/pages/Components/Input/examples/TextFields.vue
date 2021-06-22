@@ -2,7 +2,9 @@
   <div>
     <md-field mdOutlined>
       <label>Initial Value</label>
-      <md-input disabled v-model="inline" placeholder="A nice placeholder">></md-input>
+      <md-input disabled v-model="inline" placeholder="A nice placeholder"
+        >></md-input
+      >
     </md-field>
 
     <md-field>
@@ -56,17 +58,17 @@
 </template>
 
 <script>
-  export default {
-    name: 'TextFields',
-    data: () => ({
-      initial: 'Initial Value',
-      type: null,
-      withLabel: null,
-      inline: null,
-      number: null,
-      textarea: null,
-      autogrow: null,
-      disabled: null
-    })
-  }
+export default {
+  name: "TextFields",
+  data: () => ({
+    initial: "Initial Value",
+    type: null,
+    withLabel: null,
+    inline: "sdsadsad",
+    number: null,
+    textarea: null,
+    autogrow: null,
+    disabled: null
+  })
+};
 </script>

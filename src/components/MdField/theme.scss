@@ -3,14 +3,20 @@
     @if md-get-theme-mode() == light {
       .md-field-content {
         &:after {
-          background-color: rgba(#000, .42);
+          background-color: rgba(#000, 0.42);
         }
       }
 
       .md-field-content {
         &:before {
-          @include md-theme-property-by-hue(background-color, blue, 500, field, '');
-  
+          @include md-theme-property-by-hue(
+            background-color,
+            blue,
+            500,
+            field,
+            ""
+          );
+
           // @include md-theme-property(background-color, primary);
         }
       }
@@ -27,14 +33,15 @@
         color: #677487;
       }
 
-      .md-suffix, .md-prefix {
-        color: rgba(#000, .54);
+      .md-suffix,
+      .md-prefix {
+        color: rgba(#000, 0.54);
       }
 
       .md-input,
       .md-textarea {
         &::-webkit-input-placeholder {
-          color: rgba(#000, .54);
+          color: rgba(#000, 0.54);
         }
       }
 
@@ -42,13 +49,13 @@
       &.md-has-value {
         .md-input,
         .md-textarea {
-          -webkit-text-fill-color: rgba(#000, .87);
+          -webkit-text-fill-color: rgba(#000, 0.87);
         }
       }
 
       &.md-has-textarea:not(.md-autogrow) {
         &:after {
-          border-color: rgba(#000, .42);
+          border-color: rgba(#000, 0.42);
         }
 
         &:before {
@@ -58,19 +65,24 @@
 
       &.md-disabled {
         &:after {
-          background-image: linear-gradient(to right, rgba(#000, .38) 0%, rgba(#000, .38) 33%, transparent 0%);
+          background-image: linear-gradient(
+            to right,
+            rgba(#000, 0.38) 0%,
+            rgba(#000, 0.38) 33%,
+            transparent 0%
+          );
         }
 
         label,
         .md-input,
         .md-textarea {
-          color: #B1B8C1;
-          border-color: #D4D8DD;
+          color: #b1b8c1;
+          border-color: #d4d8dd;
         }
       }
     } @else {
       &:after {
-        background-color: rgba(#fff, .7);
+        background-color: rgba(#fff, 0.7);
       }
 
       &:before {
@@ -80,17 +92,18 @@
       .md-helper-text,
       .md-count,
       label {
-        color: rgba(#fff, .7);
+        color: rgba(#fff, 0.7);
       }
 
-      .md-suffix, .md-prefix {
-        color: rgba(#fff, .7);
+      .md-suffix,
+      .md-prefix {
+        color: rgba(#fff, 0.7);
       }
 
       .md-input,
       .md-textarea {
         &::-webkit-input-placeholder {
-          color: rgba(#fff, .7);
+          color: rgba(#fff, 0.7);
         }
       }
 
@@ -114,13 +127,18 @@
 
       &.md-disabled {
         &:after {
-          background-image: linear-gradient(to right, rgba(#fff, .7) 0%, rgba(#fff, .7) 33%, transparent 0%);
+          background-image: linear-gradient(
+            to right,
+            rgba(#fff, 0.7) 0%,
+            rgba(#fff, 0.7) 33%,
+            transparent 0%
+          );
         }
 
         label,
         .md-input,
         .md-textarea {
-          color: rgba(#fff, .5);
+          color: rgba(#fff, 0.5);
         }
       }
     }
@@ -135,12 +153,24 @@
 
     &.md-invalid {
       &:after {
-        @include md-theme-property-by-hue(background-color, red, A400, field, error);
+        @include md-theme-property-by-hue(
+          background-color,
+          red,
+          A400,
+          field,
+          error
+        );
       }
 
       &.md-has-textarea:not(.md-autogrow) {
         &:before {
-          @include md-theme-property-by-hue(border-color, red, A400, field, error);
+          @include md-theme-property-by-hue(
+            border-color,
+            red,
+            A400,
+            field,
+            error
+          );
         }
       }
 
@@ -158,8 +188,9 @@
         @include md-theme-property-by-hue(fill, red, A400, field, error);
       }
       &.md-outlined {
-        .md-input, .md-menu.md-select {
-          border-color: #F58585;
+        .md-input,
+        .md-menu.md-select {
+          border-color: #f58585;
         }
       }
     }
@@ -183,24 +214,26 @@
       }
     }
 
-    &.md-outlined{
+    &.md-outlined {
       &.md-disabled {
         label {
-          color: #B1B8C1;
+          color: #b1b8c1;
         }
-        .md-input {
-          color: #B1B8C1;
-          border-color: #E7E9EC;
+        .md-input,
+        .md-textarea {
+          color: #b1b8c1;
+          border-color: #e7e9ec;
+          -webkit-text-fill-color: #b1b8c1;
         }
       }
       &.md-focused {
-        .md-input{
-          @include md-theme-property-by-hue(border-color, blue, 500, field, '');
+        .md-input {
+          @include md-theme-property-by-hue(border-color, blue, 500, field, "");
           // @include md-theme-property(border-color, primary);
         }
       }
       input:-webkit-autofill,
-      input:-webkit-autofill:hover, 
+      input:-webkit-autofill:hover,
       input:-webkit-autofill:focus,
       textarea:-webkit-autofill,
       textarea:-webkit-autofill:hover,
@@ -209,7 +242,7 @@
       select:-webkit-autofill:hover,
       select:-webkit-autofill:focus {
         border: 1px solid #d4d8dd;
-        -webkit-text-fill-color: rgba(0,0,0,0.87);
+        -webkit-text-fill-color: rgba(0, 0, 0, 0.87);
         box-shadow: none;
         transition: background-color 5000s ease-in-out 0s;
       }
