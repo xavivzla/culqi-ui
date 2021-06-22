@@ -198,7 +198,7 @@
           const target = item.toLowerCase()
           const search = this.searchTerm.toLowerCase()
 
-          if (this.mdFuzzySearch) {
+          if (this.mdFuzzySearch && !this.mdGroup) {
             return fuzzy(search, target)
           }
 

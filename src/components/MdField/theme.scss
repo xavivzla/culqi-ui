@@ -183,11 +183,34 @@
     }
 
     &.md-outlined{
+      &.md-disabled {
+        label {
+          color: #B1B8C1;
+        }
+        .md-input {
+          color: #B1B8C1;
+          border-color: #E7E9EC;
+        }
+      }
       &.md-focused {
         .md-input{
           @include md-theme-property-by-hue(border-color, blue, 500, field, '');
           // @include md-theme-property(border-color, primary);
         }
+      }
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover, 
+      input:-webkit-autofill:focus,
+      textarea:-webkit-autofill,
+      textarea:-webkit-autofill:hover,
+      textarea:-webkit-autofill:focus,
+      select:-webkit-autofill,
+      select:-webkit-autofill:hover,
+      select:-webkit-autofill:focus {
+        border: 1px solid #d4d8dd;
+        -webkit-text-fill-color: rgba(0,0,0,0.87);
+        box-shadow: none;
+        transition: background-color 5000s ease-in-out 0s;
       }
     }
   }
