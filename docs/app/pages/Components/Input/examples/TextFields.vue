@@ -2,7 +2,7 @@
   <div>
     <md-field mdOutlined>
       <label>Initial Value</label>
-      <md-input v-model="inline" placeholder="A nice placeholder">></md-input>
+      <md-input disabled v-model="inline" placeholder="A nice placeholder">></md-input>
     </md-field>
 
     <md-field>
